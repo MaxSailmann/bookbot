@@ -5,12 +5,10 @@ def main():
         print(f"The book contains {number_words} words.")
         number_chars = count_chars(text)
         print(f"The book contains the following letters (alphabetically):")
-        for key,value in number_chars.items():
-            print(f"{key} -> {value}")
+        print_chars()
         number_chars = sort_by_appearance(number_chars)
         print(f"The book contains the following letters (falling order):")
-        for key,value in number_chars.items():
-            print(f"{key} -> {value}")
+        print_chars()
 
 def count_words(text: str) -> int:
     """Takes a string as input and returns the number of words of that given string as an integer"""
@@ -18,7 +16,7 @@ def count_words(text: str) -> int:
 
 def count_chars(text: str) -> dict:
     """Takes a string as input and returns a dictionary of how often each letter appears
-    within the given string"""
+    within the given string (alphabetical order)"""
     list_of_chars = {}
     text = text.lower()
     for char in text:
@@ -31,6 +29,10 @@ def count_chars(text: str) -> dict:
     return lsit_of_chars_ordered
 
 def sort_by_appearance(chars: dict) -> dict:
+    """Takes a dict as input and returns it sorted by the key-value"""
     return dict(sorted(chars.items(), key=lambda item: item[1], reverse=True))
 
+def print_chars(list_of_chars: dict) -> None:
+    for key,value in list_of_chars.items():
+            print(f"{key} -> {value}")
 main()
