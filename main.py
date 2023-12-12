@@ -5,10 +5,11 @@ def main():
         print(f"The book contains {number_words} words.")
         number_chars = count_chars(text)
         print(f"The book contains the following letters (alphabetically):")
-        print_chars()
+        print_chars(number_chars)
         number_chars = sort_by_appearance(number_chars)
         print(f"The book contains the following letters (falling order):")
-        print_chars()
+        print_chars(number_chars)
+
 
 def count_words(text: str) -> int:
     """Takes a string as input and returns the number of words of that given string as an integer"""
